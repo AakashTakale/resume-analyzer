@@ -131,6 +131,7 @@ export type ResumeInput =
 
 interface UseAnalysisResult {
   loading: boolean;
+  warmingUp: boolean;
   error: string | null;
   result: AnalysisResult | null;
   analyze: (resume: ResumeInput, jobDescription: string, previousRewrites?: string[]) => Promise<void>;
@@ -138,13 +139,20 @@ interface UseAnalysisResult {
   injectResult: (r: AnalysisResult) => void;
 }
 
+// How long to wait before showing the "server waking up" message.
+// Render free tier cold starts take 30-60s; we surface the message after 3s
+// so users know the app is working, not broken.
+const WARM_UP_THRESHOLD_MS = 3000;
+
 export function useAnalysis(): UseAnalysisResult {
   const [loading, setLoading] = useState(false);
+  const [warmingUp, setWarmingUp] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<AnalysisResult | null>(null);
 
   async function analyze(_resume: ResumeInput, _jobDescription: string, _previousRewrites?: string[]) {
     setLoading(true);
+    setWarmingUp(false);
     setError(null);
     setResult(null);
 
@@ -154,6 +162,21 @@ export function useAnalysis(): UseAnalysisResult {
       setLoading(false);
       return;
     }
+
+    // Ping health first. If no response within WARM_UP_THRESHOLD_MS, show
+    // the waking-up banner so users know the server is starting, not broken.
+    const warmUpTimer = setTimeout(() => setWarmingUp(true), WARM_UP_THRESHOLD_MS);
+    try {
+      await fetch(`${API_URL}/api/health`);
+    } catch {
+      clearTimeout(warmUpTimer);
+      setWarmingUp(false);
+      setError('Could not reach the server. Please try again.');
+      setLoading(false);
+      return;
+    }
+    clearTimeout(warmUpTimer);
+    setWarmingUp(false);
 
     try {
       let response: Response;
@@ -201,5 +224,5 @@ export function useAnalysis(): UseAnalysisResult {
     setError(null);
   }
 
-  return { loading, error, result, analyze, reset, injectResult: setResult };
+  return { loading, warmingUp, error, result, analyze, reset, injectResult: setResult };
 }

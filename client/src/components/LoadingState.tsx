@@ -1,5 +1,22 @@
+interface LoadingStateProps {
+  warmingUp?: boolean;
+}
+
 /* Skeleton placeholders shaped like the results layout */
-export default function LoadingState() {
+export default function LoadingState({ warmingUp = false }: LoadingStateProps) {
+  if (warmingUp) {
+    return (
+      <div className="flex flex-col items-center justify-center h-full gap-5 py-24 text-center">
+        <WarmUpSpinner />
+        <div className="space-y-1.5">
+          <p className="text-app-text text-sm font-medium">Waking up the server…</p>
+          <p className="text-app-secondary text-xs max-w-xs leading-relaxed">
+            The server sleeps when idle. This takes about 30 seconds — hang tight.
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="space-y-8 max-w-3xl">
 
@@ -97,6 +114,37 @@ export default function LoadingState() {
           </div>
         ))}
       </div>
+    </div>
+  );
+}
+
+function WarmUpSpinner() {
+  return (
+    <div className="relative flex items-center justify-center" style={{ width: 48, height: 48 }}>
+      {/* Spinning ring */}
+      <svg
+        className="absolute inset-0 animate-spin"
+        style={{ animationDuration: '1.4s' }}
+        viewBox="0 0 48 48"
+        fill="none"
+      >
+        <circle
+          cx="24" cy="24" r="20"
+          stroke="var(--app-border)"
+          strokeWidth="3"
+        />
+        <path
+          d="M24 4 A20 20 0 0 1 44 24"
+          stroke="var(--app-secondary)"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+      </svg>
+      {/* Server dot */}
+      <div
+        className="rounded-full"
+        style={{ width: 8, height: 8, background: 'var(--app-secondary)' }}
+      />
     </div>
   );
 }

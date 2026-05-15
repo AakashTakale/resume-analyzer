@@ -24,7 +24,7 @@ export default function App() {
     localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
   );
   const [lastInput, setLastInput] = useState<LastInput | null>(null);
-  const { loading, error, result, analyze, injectResult } = useAnalysis();
+  const { loading, warmingUp, error, result, analyze, injectResult } = useAnalysis();
 
   const [previousRewrites, setPreviousRewrites] = useState<string[]>([]);
 
@@ -198,7 +198,7 @@ export default function App() {
               className="flex-1 border-l border-app-border overflow-y-auto"
               style={{ padding: '40px 32px' }}
             >
-              <LoadingState />
+              <LoadingState warmingUp={warmingUp} />
             </div>
           )}
         </div>
@@ -364,7 +364,7 @@ export default function App() {
 
             {reanalyzeLoading ? (
               <div style={{ padding: '24px 32px' }}>
-                <LoadingState />
+                <LoadingState warmingUp={warmingUp} />
               </div>
             ) : reanalyzeSnapshot && (
               <div className="py-8 px-8 space-y-8">
