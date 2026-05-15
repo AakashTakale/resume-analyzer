@@ -1,0 +1,27 @@
+Responsibilities
+Design, develop, test, and deploy high-quality, scalable software features and services across the Beacon product platform
+Write clean, well-documented, and thoroughly tested code following team coding standards and best practices
+Contribute to technical design discussions and architecture reviews; recommend solutions that balance delivery speed with long-term maintainability
+Participate in code reviews, providing constructive feedback to peers and incorporating feedback on your own work
+Work closely with product managers, designers, and QA engineers to translate requirements and user stories into high-quality software
+Actively participate in Agile/Scrum ceremonies including sprint planning, standups, retrospectives, and backlog grooming
+Collaborate with DevOps and platform teams to ensure software is cloud-ready, observable, and deployable through CI/CD pipelines
+Write and maintain unit, integration, and end-to-end tests to ensure high test coverage and software reliability
+Diagnose and resolve production issues, performance bottlenecks, and system defects in a timely and systematic manner
+Monitor application health using observability tools and proactively identify and address reliability risks
+Mentor junior and mid-level software engineers, providing technical guidance, code review feedback, and career development support
+Stay current with evolving technologies, frameworks, and industry best practices; bring new ideas to the team through learning and experimentation
+Required
+Bachelor's degree in Computer Science, Software Engineering, or a related technical field (or equivalent practical experience)
+Minimum 5–10 years of professional software engineering experience, with a strong portfolio of production software systems
+Proficiency in one or more backend languages such as Java, Python, C#, Go, or Node.js; frontend experience (React, Angular, or Vue.js) is a plus
+Strong experience building and deploying cloud-native applications on AWS, Azure, or GCP
+Solid understanding of RESTful API design, microservices architecture, and distributed systems
+Experience with relational and NoSQL databases (SQL Server, PostgreSQL, MySQL, MongoDB, or similar)
+Proficiency with version control (Git), CI/CD pipelines, and modern DevOps tooling
+Experience working in Agile/Scrum development environments with cross-functional product and engineering teams
+Strong problem-solving skills and a systematic, analytical approach to debugging and root cause analysis
+Excellent written and verbal communication skills; ability to explain technical concepts clearly to non-technical stakeholders
+High sense of ownership and accountability for the quality and reliability of the software you ship
+Collaborative team player who actively contributes to team culture, knowledge sharing, and continuous improvement
+Self-starter who manages time effectively, meets commitments, and adapts well in a fast-paced Agile environment

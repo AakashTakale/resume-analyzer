@@ -1,0 +1,53 @@
+SUMMARY
+Senior Frontend Software Engineer with 9+ years of experience building enterprise UI systems at scale. Known for frontend architecture ownership, cross-functional delivery, and now actively integrating AI into product development.
+
+TECHNICAL SKILLS
+Frontend
+JavaScript (ES6+), TypeScript, React, Redux, Vue.js (v2/v3), Nuxt.js, HTML5, CSS3, Tailwind CSS, Material UI, Bootstrap, Responsive Design, Cross-browser Compatibility, Accessibility (WCAG)
+APIs and Data
+REST APIs, GraphQL, Postman, DynamoDB, MySQL
+Cloud & DevOps
+AWS (EC2, S3, Lambda, API Gateway, CloudWatch), CI/CD, Git, GitHub
+Build Tools & Bundlers
+Vite, Webpack, npm
+Testing
+Vitest, Jest, Playwright, Component Testing, E2E Testing
+AI-Enabled Development
+LLM APIs, Prompt Engineering, AI-assisted Refactoring, Test Generation, Rapid Prototyping with AI Tooling
+Practices & Methodologies
+Agile/Scrum, Component-Driven Development, Frontend Architecture, Performance Optimization, Code Splitting, Lazy Loading, Code Review, Technical Mentorship
+
+PROFESSIONAL EXPERIENCE
+Senior Software Engineer – Vantiva, San Antonio, TX
+November 2022 – Present
+
+Owned frontend architecture and delivery for CloudCore product areas, building real-time device telemetry and health visualizations in Vue.js and TypeScript, supporting 5,000+ monitored devices
+Served as technical co-lead for a PrimeVue v3 → v4 migration, upgrading 20+ UI components, eliminating deprecated APIs, and stabilizing the UI layer with zero release delays
+Reduced UI regression defects by 30% by introducing consistent TypeScript component patterns and targeted refactoring of legacy Vue.js views
+Integrated Vue.js frontends with Java Kotlin microservices, validating REST contracts, and reducing frontend-backend integration issues during releases
+Operated in AWS environment (CloudWatch, Lambda, API Gateway) to troubleshoot production issues and resolve service failures
+Coordinated defect triage with distributed QA (China) and support teams (India), reducing turnaround time on critical bugs by 25%
+Mentored 5+ junior and mid-level engineers through architectural guidance and code reviews, while leveraging AI-assisted refactoring and test generation to improve team throughput and reduce manual rework
+
+Senior Web Developer – USAA, San Antonio, TX
+October 2018 - November 2022
+
+Built operational dashboards using React and JavaScript (ES6+) for 3 directors in the MDS department, surfacing case volume, service backlogs, and document-processing workload across 3 divisions
+Contributed to an estimated 20-30% reduction in backlog levels through improved escalation and prioritization visibility delivered via the dashboard
+Developed an executive disputes dashboard for a VP using React and REST APIs, integrating ~4,000 monthly call volume, resolution time, and satisfaction metrics across the dispute servicing workflow
+Built reusable React component libraries and configurable data-driven modules, cutting duplicate frontend code across teams by 30%
+Refactored legacy JavaScript UI codebases, improving page load times by 20% and reducing recurring production defects
+Established 90% test coverage using Jest and Playwright, improving application reliability and reducing regression risk
+
+Web Developer – QubeDrop Corp., Sheridan, WY
+October 2016 – September 2018
+
+Developed modular web applications using JavaScript and Angular, applying component-oriented UI principles to create reusable user interfaces, which reduced development time for new features
+Contributed to the full SDLC in Agile/Scrum team, translating evolving requirements into production-ready features and supporting reliable release analysis to development, testing, and releases for two product updates
+Delivered ongoing UI improvements through bug fixes, performance optimizations, and UI enhancements, improving application stability and user experience
+
+EDUCATION
+Master of Science, Computer Science - California State University, Fullerton
+May 2016
+Bachelor of Engineering, Computer Engineering - University of Pune, India
+May 2014

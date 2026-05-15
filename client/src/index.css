@@ -1,0 +1,209 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Dark theme (default) ──────────────────────────────── */
+:root {
+  --app-bg: #0A0A0B;
+  --app-surface: #111113;
+  --app-border: #1F1F23;
+  --app-inner: #1A1A1E;
+  --app-text: #F5F5F7;
+  --app-secondary: #888888;
+  --app-muted: #555555;
+  --app-accent: #635BFF;
+
+  /* Analyze button — dark: subtle outlined */
+  --btn-bg: #111113;
+  --btn-border: #3A3A3E;
+  --btn-text: #CCCCCC;
+  --btn-hover-border: #555555;
+  --btn-hover-text: #FFFFFF;
+  --btn-hover-bg: #111113;
+
+  /* Nice-to-have keyword chip, dot, and label */
+  --chip-nice-bg: #1A1A1E;
+  --chip-nice-text: #888888;
+  --dot-nice: #444444;
+  --label-nice: #666666;
+
+  /* Section fit progress bar track */
+  --bar-track: #1F1F23;
+
+  /* Rewrite suggestion — improved panel + why row */
+  --improved-bg: #0D1A0D;
+  --improved-text: #86C35A;
+  --why-bg: #0D0D0D;
+
+  /* Keyword gap tier count */
+  --count-color: #666666;
+
+  /* Pill badge colors for keyword gap column headers */
+  --pill-critical-bg: #2A0E0E;
+  --pill-critical-text: #F09595;
+  --pill-important-bg: #2A1A00;
+  --pill-important-text: #FAC775;
+
+  /* Semantic text colors for result components */
+  --heading-text: #666666;
+  --feedback-text: #888888;
+  --why-text: #888888;
+  --original-text: #888888;
+  --meta-text: #555555;
+
+  /* Re-analyze button — dark: same subtle outlined */
+  --btn-re-bg: #111113;
+  --btn-re-border: #3A3A3E;
+  --btn-re-text: #CCCCCC;
+  --btn-re-hover-border: #555555;
+  --btn-re-hover-text: #FFFFFF;
+  --btn-re-hover-bg: #111113;
+}
+
+/* ── Light theme ────────────────────────────────────────── */
+html.light {
+  --app-bg: #F6F9FC;
+  --app-surface: #FFFFFF;
+  --app-border: #E0E4EA;
+  --app-inner: #F3F4F6;
+  --app-text: #1A1A2E;
+  --app-secondary: #6B7280;
+  --app-muted: #9CA3AF;
+  --app-accent: #635BFF;
+
+  /* Analyze button — light: purple filled */
+  --btn-bg: #635BFF;
+  --btn-border: transparent;
+  --btn-text: #FFFFFF;
+  --btn-hover-border: transparent;
+  --btn-hover-text: #FFFFFF;
+  --btn-hover-bg: #4F46E5;
+
+  /* Nice-to-have keyword chip, dot, and label */
+  --chip-nice-bg: #F1EFE8;
+  --chip-nice-text: #5F5E5A;
+  --dot-nice: #D1D5DB;
+  --label-nice: #6B7280;
+
+  /* Section fit progress bar track */
+  --bar-track: #F3F4F6;
+
+  /* Rewrite suggestion — improved panel + why row */
+  --improved-bg: #EAF3DE;
+  --improved-text: #3B6D11;
+  --why-bg: #F9FAFB;
+
+  /* Keyword gap tier count */
+  --count-color: #6B7280;
+
+  /* Pill badge colors for keyword gap column headers */
+  --pill-critical-bg: #FCEBEB;
+  --pill-critical-text: #A32D2D;
+  --pill-important-bg: #FAEEDA;
+  --pill-important-text: #854F0B;
+
+  /* Semantic text colors for result components */
+  --heading-text: #6B7280;
+  --feedback-text: #4B5563;
+  --why-text: #4B5563;
+  --original-text: #6B7280;
+  --meta-text: #6B7280;
+
+  /* Re-analyze button — light: white outlined */
+  --btn-re-bg: #FFFFFF;
+  --btn-re-border: #D1D5DB;
+  --btn-re-text: #374151;
+  --btn-re-hover-border: #9CA3AF;
+  --btn-re-hover-text: #111827;
+  --btn-re-hover-bg: #F9FAFB;
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--app-bg);
+}
+
+body {
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--app-border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--app-secondary);
+}
+
+/* ── Focus ring ─────────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Skeleton shimmer ───────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--app-surface) 25%,
+    var(--app-border)  50%,
+    var(--app-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: 6px;
+}
+
+/* ── Analyze button (theme-aware) ───────────────────────── */
+.btn-analyze {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+.btn-analyze:hover:not(:disabled) {
+  border-color: var(--btn-hover-border);
+  color: var(--btn-hover-text);
+  background-color: var(--btn-hover-bg);
+}
+.btn-analyze:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Re-analyze button (theme-aware) ────────────────────── */
+.btn-reanalyze {
+  background-color: var(--btn-re-bg);
+  border: 1px solid var(--btn-re-border);
+  color: var(--btn-re-text);
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+}
+.btn-reanalyze:hover {
+  border-color: var(--btn-re-hover-border);
+  color: var(--btn-re-hover-text);
+  background-color: var(--btn-re-hover-bg);
+}
