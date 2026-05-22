@@ -9,7 +9,7 @@ A full-stack web app that analyzes your resume against a job description and ret
 
 Built with React + TypeScript on the frontend and Node/Express on the backend, powered by the Claude API.
 
-**Live:** _(add your Vercel URL here)_
+**Live:** https://ai-resume-analyzer-amt.vercel.app
 
 ---
 
