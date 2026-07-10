@@ -82,8 +82,8 @@ function Card({ suggestion, index }: CardProps) {
         }}
       >
         <div className="border-t border-app-border">
-          {/* Two-column content */}
-          <div className="grid grid-cols-2">
+          {/* Two-column content — stacks on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2">
             {/* Left — Original */}
             <div className="p-4 border-r border-app-border">
               <p

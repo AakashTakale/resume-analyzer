@@ -43,7 +43,7 @@ export default function LoadingState({ warmingUp = false }: LoadingStateProps) {
       {/* Keyword gaps skeleton — three column cards */}
       <div className="space-y-3">
         <div className="skeleton h-2.5 w-28 rounded" />
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[5, 4, 3].map((count, col) => (
             <div
               key={col}

@@ -48,8 +48,8 @@ function Row({ section, isLast }: RowProps) {
         </div>
       </div>
       <div
-        className="leading-relaxed dark:text-[#AAAAAA] text-[#4B5563]"
-        style={{ paddingLeft: '176px', fontSize: '12px', marginTop: '4px', marginBottom: '12px' }}
+        className="leading-relaxed dark:text-[#AAAAAA] text-[#4B5563] sm:pl-44"
+        style={{ fontSize: '12px', marginTop: '4px', marginBottom: '12px' }}
       >
         {section.feedback}
       </div>

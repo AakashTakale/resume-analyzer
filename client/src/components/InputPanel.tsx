@@ -75,7 +75,7 @@ export default function InputPanel({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className={layout === 'stacked' ? 'flex flex-col gap-4' : 'grid grid-cols-2 gap-4'}>
+      <div className={layout === 'stacked' ? 'flex flex-col gap-4' : 'grid grid-cols-1 sm:grid-cols-2 gap-4'}>
 
         {/* ── Left / Top: Resume input ────────────────────────── */}
         <div

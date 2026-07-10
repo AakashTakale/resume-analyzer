@@ -116,7 +116,7 @@ export default function KeywordGaps({ gaps }: KeywordGapsProps) {
       </h2>
 
       {/* Two equal columns */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {TIERS.map(tier => {
           const items = gaps.filter(g => g.importance === tier);
           const cfg = TIER_CONFIG[tier];

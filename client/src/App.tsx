@@ -1,4 +1,13 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
+
+function useIsMobile() {
+  const mq = typeof window !== 'undefined' ? window.matchMedia('(max-width: 639px)') : null;
+  return useSyncExternalStore(
+    cb => { mq?.addEventListener('change', cb); return () => mq?.removeEventListener('change', cb); },
+    () => mq?.matches ?? false,
+    () => false,
+  );
+}
 import InputPanel from './components/InputPanel';
 import LoadingState from './components/LoadingState';
 import ScoreCard from './components/ScoreCard';
@@ -20,6 +29,7 @@ type LastInput = {
 };
 
 export default function App() {
+  const isMobile = useIsMobile();
   const [theme, setTheme] = useState<Theme>(() =>
     localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
   );
@@ -158,14 +168,14 @@ export default function App() {
           <div
             className="overflow-y-auto"
             style={{
-              width: appState === 'idle' ? '100%' : '50%',
+              width: isMobile || appState === 'idle' ? '100%' : '50%',
               opacity: appState === 'loading' ? 0.4 : 1,
               pointerEvents: appState === 'loading' ? 'none' : 'auto',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: appState === 'idle' ? 'center' : 'flex-start',
-              padding: appState === 'idle' ? '48px 40px' : '40px 32px',
+              padding: isMobile ? '32px 16px' : appState === 'idle' ? '48px 40px' : '40px 32px',
               transition: 'width 300ms ease, opacity 200ms ease',
             }}
           >
@@ -192,8 +202,8 @@ export default function App() {
             </div>
           </div>
 
-          {/* Skeleton panel — right half, only during loading */}
-          {appState === 'loading' && (
+          {/* Skeleton panel — right half, only during loading on non-mobile */}
+          {appState === 'loading' && !isMobile && (
             <div
               className="flex-1 border-l border-app-border overflow-y-auto"
               style={{ padding: '40px 32px' }}
@@ -238,7 +248,7 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3 flex-shrink-0 ml-4">
-            <span className="whitespace-nowrap" style={{ fontSize: '13px', color: 'var(--meta-text)' }}>analyzed just now</span>
+            <span className="whitespace-nowrap hidden sm:inline" style={{ fontSize: '13px', color: 'var(--meta-text)' }}>analyzed just now</span>
             <button
               onClick={enterReanalyze}
               className="btn-reanalyze px-3 py-1 rounded-lg text-xs"
@@ -251,7 +261,7 @@ export default function App() {
 
         {/* Scrollable results content */}
         <div className="flex-1 overflow-y-auto">
-          <div className="max-w-3xl mx-auto py-10 px-8 space-y-8">
+          <div className="max-w-3xl mx-auto py-6 px-4 sm:py-10 sm:px-8 space-y-8">
             {result?.inputQuality === 'degraded' && (
               <div
                 className="rounded-lg px-4 py-2 text-xs leading-relaxed"
