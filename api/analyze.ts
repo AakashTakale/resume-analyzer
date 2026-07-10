@@ -24,11 +24,11 @@ function parseMultipart(req: VercelRequest): Promise<ParsedForm> {
     const fields: Record<string, string> = {};
     let file: ParsedForm['file'];
 
-    bb.on('field', (name, value) => {
+    bb.on('field', (name: string, value: string) => {
       fields[name] = value;
     });
 
-    bb.on('file', (name, stream, info) => {
+    bb.on('file', (name: string, stream: NodeJS.ReadableStream, info: { filename: string; encoding: string; mimeType: string }) => {
       if (name !== 'resume') {
         // Drain and discard any unexpected file fields
         stream.resume();

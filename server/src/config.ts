@@ -15,5 +15,7 @@ export const config = {
   maxInputWords: 4000,
   maxResumeWords: 2500,
   maxJobDescWords: 1500,
-  rateLimitWindowMs: 30000,
+  // 2 requests per IP per 30 minutes
+  rateLimitWindowMs: 30 * 60 * 1000,
+  rateLimitMax: 2,
 };
