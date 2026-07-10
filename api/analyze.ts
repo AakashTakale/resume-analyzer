@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import Busboy from 'busboy';
 import { parseResumeInput } from './lib/services/inputParser';
 import { analyzeResume } from './lib/services/claudeService';
-import { config as appConfig } from './lib/config';
+import { appConfig } from './lib/config';
 
 // Disable Vercel's default body parser so we can handle both multipart and JSON manually
 export const config = {

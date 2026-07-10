@@ -1,5 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { config } from '../config';
+import { appConfig as config } from '../config';
 import type { AnalysisResult } from '../types/analysis';
 
 const client = new Anthropic({ apiKey: config.anthropicApiKey });
